@@ -1,0 +1,22 @@
+
+void FUN_81067bdc(void)
+
+{
+  uRam81190fe0 = 0x80000001;
+  uRam81190fb8 = 0x80000001;
+  uRam81190fbc = 0x80000002;
+  uRam81190fc0 = 0x80000003;
+  uRam81190fc4 = 0x80000003;
+  uRam81190fc8 = 0x80000005;
+  uRam81190fcc = 0x80000006;
+  uRam81190fd0 = 0x80000007;
+  uRam81190fd4 = 0x80000008;
+  uRam81190fd8 = 0x80000009;
+  uRam81190fdc = 0x8000000a;
+  func_0x811184e0(0x81190fb4);
+  func_0x81118450(0x81190fb4,&UNK_811184f0,0x811ae7e8);
+  func_0x81118500(0x81190fb5);
+  func_0x81118450(0x81190fb5,&UNK_811184d0,0x811ae7e8);
+  return;
+}
+

@@ -1,0 +1,130 @@
+# -*- coding: utf-8 -*-
+"""b028_ev1420 润色补丁构建脚本（自带预算宽度自检）。
+
+宽度口径与校验器一致：全角字符=2，半角字符=1，须 <= budget 列。
+"""
+import io
+import json
+import sys
+
+TSV = r"D:\VITA3K\ux0\app\PCSG00337\localization\text\work\b028_ev1420.tsv"
+OUT = r"D:\VITA3K\ux0\app\PCSG00337\localization\reports\polish_20260910\patches\b028_ev1420.json"
+
+patches = [
+    {"id": "b028_ev1420_0006",
+     "translation": "但步梦刻意没提这事，径直离开了房间。"},
+    {"id": "b028_ev1420_0009",
+     "translation": "软软的……？",
+     "note": ""},
+    {"id": "b028_ev1420_0015",
+     "translation": "因为和步梦约好了……"},
+    {"id": "b028_ev1420_0067",
+     "translation": "可是……今天班次好像也乱了……"},
+    {"id": "b028_ev1420_0088",
+     "translation": "「钵置、钵置……」",
+     "note": "地名，同钵置桥"},
+    {"id": "b028_ev1420_0089",
+     "translation": "「钵置、钵置、为您提案钵置分售公寓生活，香川仓库……」",
+     "note": "新词:カガワ倉庫=香川仓库；鉢置=地名(钵置桥)"},
+    {"id": "b028_ev1420_0123",
+     "translation": "料理组和女仆组外出差不多两小时了，也该回来了吧。"},
+    {"id": "b028_ev1420_0124",
+     "translation": "料理组去采购没向学园订购的剩余食材，女仆组则去良子小姐那里借女仆装。"},
+    {"id": "b028_ev1420_0140",
+     "translation": "「愿望？」",
+     "note": ""},
+    {"id": "b028_ev1420_0145",
+     "translation": "「穿的理由？」",
+     "note": ""},
+    {"id": "b028_ev1420_0150",
+     "translation": "「咦？真央酱不去？」",
+     "note": ""},
+    {"id": "b028_ev1420_0168",
+     "translation": "「回来啦！」",
+     "note": ""},
+    {"id": "b028_ev1420_0171",
+     "translation": "「就是说，真央酱并不是特别想穿，但有理由的话也不是不能穿？」"},
+    {"id": "b028_ev1420_0178",
+     "translation": "「好！」",
+     "note": ""},
+    {"id": "b028_ev1420_0196",
+     "translation": "所以，我为什么会觉得失望来着？"},
+    {"id": "b028_ev1420_0197",
+     "translation": "可、可是不喝就退回去很尴尬。"},
+    {"id": "b028_ev1420_0216",
+     "translation": "「明天一口气做完……不会很费时间吗？」"},
+    {"id": "b028_ev1420_0249",
+     "translation": "所以昨天良子小姐不在，步梦也照样能变成完美的女孩。"},
+    {"id": "b028_ev1420_0258",
+     "translation": "要是步梦一人能化出完美妆容，良子小姐就不用每天早上陪着。"},
+    {"id": "b028_ev1420_0259",
+     "translation": "反过来说，如果必须良子小姐帮忙，那昨天步梦的妆应该更不完美才对。"},
+    {"id": "b028_ev1420_0262",
+     "translation": "标明性别的官方文件不用说，外观上一眼是男的证据也没有。"},
+    {"id": "b028_ev1420_0274",
+     "translation": "「——要是女孩？」",
+     "note": ""},
+    {"id": "b028_ev1420_0275",
+     "translation": "「……要晕了！」",
+     "note": ""},
+    {"id": "b028_ev1420_0284",
+     "translation": "比起胸部话题，这次明显矛盾。"},
+    {"id": "b028_ev1420_0309",
+     "translation": "家计簿里没有步梦的决定性证据……吧……"},
+    {"id": "b028_ev1420_0327",
+     "translation": "是爸爸和良子小姐为了让步梦安心和我同住一室上的保险。"},
+    {"id": "b028_ev1420_0330",
+     "translation": "步梦的真身——"},
+    {"id": "b028_ev1420_0355",
+     "translation": "「果然是男生？」",
+     "note": ""},
+    {"id": "b028_ev1420_0359",
+     "translation": "还有谎报性别、女装上学这种乱来的说法……"},
+    {"id": "b028_ev1420_0360",
+     "translation": "而且「骗子不可原谅」还对步梦说过……"},
+]
+
+
+def width(s):
+    return sum(2 if ord(c) > 127 else 1 for c in s)
+
+
+def main():
+    budgets = {}
+    for line in io.open(TSV, encoding="utf-8").read().splitlines()[1:]:
+        f = line.split("\t")
+        budgets[f[0]] = int(f[4])
+
+    bad = []
+    seen = set()
+    for p in patches:
+        pid = p["id"]
+        if pid in seen:
+            bad.append("%s: duplicate patch" % pid)
+            continue
+        seen.add(pid)
+        tr = p["translation"]
+        if pid not in budgets:
+            bad.append("%s: id not in batch" % pid)
+            continue
+        if tr == "":
+            bad.append("%s: empty translation" % pid)
+            continue
+        for ch in "\t\n\r":
+            if ch in tr:
+                bad.append("%s: control char in translation" % pid)
+        w = width(tr)
+        if w > budgets[pid]:
+            bad.append("%s: width %d > budget %d" % (pid, w, budgets[pid]))
+    if bad:
+        for b in bad:
+            print("BAD", b)
+        raise SystemExit("build failed: %d problem(s)" % len(bad))
+
+    with io.open(OUT, "w", encoding="utf-8") as fh:
+        json.dump({"patches": patches}, fh, ensure_ascii=False, indent=1)
+    print("patches:", len(patches), "->", OUT)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

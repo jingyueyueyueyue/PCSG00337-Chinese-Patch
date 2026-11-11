@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-09-08T22:01:18",
+  "title_id": "PCSG00337",
+  "installed_script_sha256": "37ab152a8ac6a80d0e1b66a89fe192ea134ab55e142074f32dc548cd92cf2df9",
+  "installed_rodata_sha256": "9723de6bde8ca3bd84c304f77743d7598924df2a958c05738bec31d6655ea281",
+  "script_matches_user_confirmed_working_build": true,
+  "uniform_font_installed": true,
+  "installed_disk_verification": "passed inside complete install transaction",
+  "uniform_font_pixels_reproduced": 21690,
+  "regression_tests_passed": 53,
+  "font_preview": "localization/font/generated/font_preview.png",
+  "game_confirmation_before_font_repaint": "archive/2026-09/20260908_runtime_before_uniform.json",
+  "new_uniform_font_game_screenshot_verified": false,
+  "note": "The user confirmed game loading before the final uniform repaint. The final repaint was checked by independent font raster reproduction and installed file readback; a fresh game launch shows the new font."
+}

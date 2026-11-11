@@ -1,0 +1,83 @@
+# -*- coding: utf-8 -*-
+"""b050_ev3320 润色补丁构建：生成 JSON 前按校验器同款 enc_len 做预算自检。"""
+import csv
+import json
+import sys
+from pathlib import Path
+
+ROOT = Path(r"D:\VITA3K\ux0\app\PCSG00337")
+BATCH = ROOT / "localization/text/work/b050_ev3320.tsv"
+OUT = ROOT / "localization/reports/polish_20260910/patches/b050_ev3320.json"
+
+
+def enc_len(s: str) -> int:
+    return sum(1 if ord(c) < 128 else 2 for c in s)
+
+
+patches = [
+    {"id": "b050_ev3320_0003", "translation": "乍看有7～8成赞成，不过……"},
+    {"id": "b050_ev3320_0028", "translation": "「嗯，这样能赢吗……?」", "note": "问号半角压宽"},
+    {"id": "b050_ev3320_0029", "translation": "「嗯，总比和5班两败俱伤强……」"},
+    {"id": "b050_ev3320_0040", "translation": "「正如大家所知，8班目前总排名第三，要争夺总冠军，就必须在慈善义卖会上再多提升一点成绩」"},
+    {"id": "b050_ev3320_0044", "translation": "这样的话，表决没问题吧……？"},
+    {"id": "b050_ev3320_0071", "translation": "「……真的太冒失，抱歉」"},
+    {"id": "b050_ev3320_0072", "translation": "「……三谷学长提过我?」", "note": "问号半角压宽"},
+    {"id": "b050_ev3320_0078", "translation": "「真央酱、拜田同学，那明天学校见」"},
+    {"id": "b050_ev3320_0084", "translation": "「甜点！？步梦小姐来做吗！？」"},
+    {"id": "b050_ev3320_0113", "translation": "「未玖……啊，开学典礼时说过……」"},
+    {"id": "b050_ev3320_0123", "translation": "「啊，不……刚才是那么说的，但也不是说完全没有……那、那个……」"},
+    {"id": "b050_ev3320_0125", "translation": "「正好话告一段落，到伊奈濑了」"},
+    {"id": "b050_ev3320_0126", "translation": "「啊？呃，厉害……就是说有个超漂亮的学妹……」"},
+    {"id": "b050_ev3320_0179", "translation": "「初次见面，三谷步梦。请多关照」"},
+    {"id": "b050_ev3320_0180", "translation": "「初次见面，东云皋月。该是我请您多关照」"},
+    {"id": "b050_ev3320_0220", "translation": "（陆斗和步梦并肩走……）"},
+    {"id": "b050_ev3320_0226", "translation": "（看来不行……）"},
+    {"id": "b050_ev3320_0240", "translation": "满满当当的电车发车了。"},
+    {"id": "b050_ev3320_0245", "translation": "就找不到地方挪手吗？"},
+    {"id": "b050_ev3320_0246", "translation": "看样子就在我们旁边……"},
+    {"id": "b050_ev3320_0250", "translation": "步梦在我怀里轻轻点头。"},
+    {"id": "b050_ev3320_0255", "translation": "后面和右边不行……", "note": ""},
+    {"id": "b050_ev3320_0273", "translation": "四目相对……"},
+    {"id": "b050_ev3320_0278", "translation": "「……换步梦更好？」"},
+    {"id": "b050_ev3320_0284", "translation": "「所以……呀!」", "note": "叹号半角压宽"},
+    {"id": "b050_ev3320_0310", "translation": "「嗯、嗯……还行！」"},
+    {"id": "b050_ev3320_0315", "translation": "「也许挺可爱」"},
+    {"id": "b050_ev3320_0342", "translation": "不对，是因为在摸胸啊！"},
+    {"id": "b050_ev3320_0350", "translation": "糟糕，快到站了。"},
+]
+
+# ---- 自检 ----
+rows = {}
+with open(BATCH, encoding="utf-8", newline="") as f:
+    for r in csv.DictReader(f, delimiter="\t"):
+        rows[r["id"]] = r
+
+errors = []
+for p in patches:
+    pid = p["id"]
+    if pid not in rows:
+        errors.append(f"unknown id: {pid}")
+        continue
+    tr = p["translation"]
+    if "\t" in tr or "\n" in tr or "\r" in tr:
+        errors.append(f"control char in: {pid}")
+        continue
+    w, b = enc_len(tr), int(rows[pid]["budget"])
+    if w > b:
+        errors.append(f"too_long {pid}: {w}>{b}  {tr}")
+    if tr == rows[pid]["translation"] and p.get("note", rows[pid].get("note", "")) == rows[pid].get("note", ""):
+        errors.append(f"no-op patch: {pid}")
+
+if errors:
+    print("BUILD FAILED:")
+    for e in errors:
+        print("  " + e)
+    sys.exit(1)
+
+OUT.parent.mkdir(parents=True, exist_ok=True)
+with open(OUT, "w", encoding="utf-8") as f:
+    json.dump({"patches": patches}, f, ensure_ascii=False, indent=1)
+print("patches:", len(patches))
+for p in patches:
+    w = enc_len(p["translation"])
+    print(f"  {p['id']}  w={w}/{rows[p['id']]['budget']}  {p['translation'][:30]}")

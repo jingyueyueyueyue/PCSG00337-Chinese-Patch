@@ -1,0 +1,22 @@
+# ===== 游戏本体与本体衍生资源（不公开分发）=====
+/rom/
+/data/
+/movie/
+/sce_module/
+/sce_sys/
+/eboot.bin
+# 日文提取基线：可用 scripts/analysis/extract_text_assets.py 从自己的游戏副本重新生成
+/extracted/
+# 构建中间产物（含解密 ELF）
+/localization/rebuild/
+
+# ===== 历史归档：仅保留最终发布补丁包 =====
+/archive/*
+!/archive/2026-11/
+/archive/2026-11/*
+!/archive/2026-11/PCSG00337_汉化补丁_20261004.zip
+
+# ===== 本地杂项 =====
+__pycache__/
+*.pyc
+.workbuddy/

@@ -1,0 +1,13 @@
+{
+  "total_chars": 3777,
+  "private_reset_chars": 1001,
+  "preserved_private_assignments": 868,
+  "migrated_assignments": 0,
+  "private_pool_capacity": 1880,
+  "custom_pool_capacity": 3556,
+  "overflow_custom_codes": 0,
+  "illegal_code_count": 0,
+  "duplicate_code_count": 0,
+  "translation_sha256": "b46253ce25c331e38dc6e323990f6feee4cc460adb31153e829fa5dc1e348189",
+  "allocation": "preserve native and valid historical codes; F0-F9 then unused undefined CP932 pairs"
+}

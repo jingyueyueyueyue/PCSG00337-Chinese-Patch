@@ -1,0 +1,68 @@
+# -*- coding: utf-8 -*-
+"""b080_ev5160 润色补丁构建：生成 JSON 并按批次 budget 自检显示宽度。"""
+import csv
+import json
+
+BATCH = r"D:\VITA3K\ux0\app\PCSG00337\localization\text\work\b080_ev5160.tsv"
+OUT = r"D:\VITA3K\ux0\app\PCSG00337\localization\reports\polish_20260910\patches\b080_ev5160.json"
+
+patches = [
+    {"id": "b080_ev5160_0011", "translation": "拍照的人选并没有特别限定。"},
+    {"id": "b080_ev5160_0040", "translation": "「所以，只要拍下真央酱和开到那边码头的水上巴士的合照，就能完全达成逆转任务了」"},
+    {"id": "b080_ev5160_0042", "translation": "「可是真央酱也很累吧?」"},
+    {"id": "b080_ev5160_0048", "translation": "「最终啊」"},
+    {"id": "b080_ev5160_0062", "translation": "「陆斗，懂了!!」"},
+    {"id": "b080_ev5160_0087", "translation": "「是吗……可以不跑了……」"},
+    {"id": "b080_ev5160_0131", "translation": "（可是……两种心情都真实存在我心中……）"},
+    {"id": "b080_ev5160_0132", "translation": "（可是……这份心意，我很高兴……）"},
+    {"id": "b080_ev5160_0136", "translation": "（他睡得正香……）"},
+    {"id": "b080_ev5160_0162", "translation": "「陆、陆斗」"},
+    {"id": "b080_ev5160_0166", "translation": "「嗯……真央……酱……」"},
+    {"id": "b080_ev5160_0191", "translation": "「好像是」"},
+    {"id": "b080_ev5160_0223", "translation": "「1年8班，获得分数280……断层第一，夺冠啦～!!」"},
+    {"id": "b080_ev5160_0226", "translation": "「章介君，辛苦了。司令塔干得漂亮」"},
+    {"id": "b080_ev5160_0286", "translation": "是说我值得信任……?"},
+    {"id": "b080_ev5160_0292", "translation": "沉醉在胜利中的尽兴烧烤也结束了，马上就到就寝时间——"},
+    {"id": "b080_ev5160_0314", "translation": "「……里面的灯不亮」"},
+    {"id": "b080_ev5160_0319", "translation": "「不亮呢」"},
+    {"id": "b080_ev5160_0320", "translation": "「看、看到了」"},
+    {"id": "b080_ev5160_0328", "translation": "「是因为怕一个人走夜里的学校吧?」"},
+    {"id": "b080_ev5160_0353", "translation": "「行吗……?」"},
+    {"id": "b080_ev5160_0403", "translation": "听了各种解释，说不定她是只怕学校的鬼……"},
+]
+
+bad = [p["id"] for p in patches if "\t" in p["translation"] or "\n" in p["translation"]]
+if bad:
+    raise SystemExit("control chars in: %r" % bad)
+
+
+def enc_len(s: str) -> int:
+    return sum(1 if ord(c) < 128 else 2 for c in s)
+
+
+budgets = {}
+with open(BATCH, encoding="utf-8", newline="") as f:
+    for r in csv.DictReader(f, delimiter="\t"):
+        budgets[r["id"]] = int(r["budget"])
+
+unknown = [p["id"] for p in patches if p["id"] not in budgets]
+if unknown:
+    raise SystemExit("unknown ids: %r" % unknown)
+
+over = [
+    (p["id"], enc_len(p["translation"]), budgets[p["id"]])
+    for p in patches
+    if enc_len(p["translation"]) > budgets[p["id"]]
+]
+if over:
+    for pid, n, b in over:
+        print("too_long: %s %d>%d" % (pid, n, b))
+    raise SystemExit("width check failed")
+
+json.dump(
+    {"patches": patches},
+    open(OUT, "w", encoding="utf-8"),
+    ensure_ascii=False,
+    indent=1,
+)
+print("patches:", len(patches), "all width checks passed")

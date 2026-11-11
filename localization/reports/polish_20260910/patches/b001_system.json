@@ -1,0 +1,150 @@
+{
+ "patches": [
+  {
+   "id": "b001_system_0030",
+   "translation": "！心之碎片／Elements Garden　(3:34)/",
+   "note": "曲名统一为心之碎片（与词表心のカケラ一致）"
+  },
+  {
+   "id": "b001_system_0070",
+   "translation": "心之碎片",
+   "note": "曲名统一为心之碎片（与词表心のカケラ一致）"
+  },
+  {
+   "id": "b001_system_0227",
+   "translation": "呼呜呜呜呜呜呜！！"
+  },
+  {
+   "id": "b001_system_0256",
+   "translation": "咦？"
+  },
+  {
+   "id": "b001_system_0312",
+   "translation": "「咦？那……」"
+  },
+  {
+   "id": "b001_system_0313",
+   "translation": "咦？"
+  },
+  {
+   "id": "b001_system_0326",
+   "translation": "嗯？"
+  },
+  {
+   "id": "b001_system_0327",
+   "translation": "嗯？"
+  },
+  {
+   "id": "b001_system_0332",
+   "translation": "从那笑容来看，她大概也考上了吧？"
+  },
+  {
+   "id": "b001_system_0439",
+   "translation": "「是外卖？」"
+  },
+  {
+   "id": "b001_system_0459",
+   "translation": "「为何知道？」"
+  },
+  {
+   "id": "b001_system_0474",
+   "translation": "「混账！！」"
+  },
+  {
+   "id": "b001_system_0228",
+   "translation": "抢先得知结果的人们的反应。"
+  },
+  {
+   "id": "b001_system_0284",
+   "translation": "把朝冈定为第一志愿后，一路备考的每一天……"
+  },
+  {
+   "id": "b001_system_0289",
+   "translation": "回她一个笑容和V字手势。"
+  },
+  {
+   "id": "b001_system_0311",
+   "translation": "「咦？笑得那么傻？」"
+  },
+  {
+   "id": "b001_system_0339",
+   "translation": "总觉得很期待从春天开始的学园生活了。"
+  },
+  {
+   "id": "b001_system_0373",
+   "translation": "围观人群中传来一声大喊，女孩神色微乱。"
+  },
+  {
+   "id": "b001_system_0393",
+   "translation": "「你不觉得2肯定比1大吗？」"
+  },
+  {
+   "id": "b001_system_0396",
+   "translation": "「那就3倍奉还好了」"
+  },
+  {
+   "id": "b001_system_0417",
+   "translation": "哭着道歉本可以放过你们……别以为女人就不下手！"
+  },
+  {
+   "id": "b001_system_0425",
+   "translation": "「当然觉得过意不去」"
+  },
+  {
+   "id": "b001_system_0479",
+   "translation": "「没错，她被三个男人单方面找茬。怎么看这个人都像是受害者」"
+  },
+  {
+   "id": "b001_system_0495",
+   "translation": "「原来是奉莉想象出来的啊……」"
+  },
+  {
+   "id": "b001_system_0497",
+   "translation": "「怎么回事？有艺人在？」"
+  },
+  {
+   "id": "b001_system_0503",
+   "translation": "放心了",
+   "note": "预算所限，省去「」"
+  },
+  {
+   "id": "b001_system_0512",
+   "translation": "太好了呢",
+   "note": "预算所限，省去「」"
+  },
+  {
+   "id": "b001_system_0517",
+   "translation": "差点内讧的男人们。",
+   "note": "同士討ち=自己人打自己人，译内讧"
+  },
+  {
+   "id": "b001_system_0349",
+   "translation": "站员正要强行拉走女孩时，我和奉莉一起挤了进去。"
+  },
+  {
+   "id": "b001_system_0350",
+   "translation": "当与站员们面对面时，女孩老实地低下头。"
+  },
+  {
+   "id": "b001_system_0351",
+   "translation": "趁我和站员说话时，奉莉走近女孩，轻拍她的双肩。"
+  },
+  {
+   "id": "b001_system_0526",
+   "translation": "于是，站员们面面相觑……"
+  },
+  {
+   "id": "b001_system_0528",
+   "translation": "说着，奉莉轻推女孩的肩，让她和站员拉开些距离。"
+  },
+  {
+   "id": "b001_system_0540",
+   "translation": "对再次低头的女孩说完，站员们便离开了。"
+  },
+  {
+   "id": "b001_system_0455",
+   "translation": "「好，总之先进站务室里谈」",
+   "note": "奥=站内办公室，与事務所=站务室统一"
+  }
+ ]
+}

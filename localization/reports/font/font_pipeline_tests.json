@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-09-08T20:19:29",
+  "tests": 11,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "baseline_rom_sha256": "f5d681a7b14d1d5ae642a26e17023a409141d455d33d0da4a33654f7096033b8",
+  "checks": [
+    "test_16_pixel_slot_and_padding_use_their_own_geometry",
+    "test_all_original_alias_and_assigned_codes_exist_in_every_slot",
+    "test_all_six_slots_unify_text_and_preserve_native_codes_metrics_and_icons",
+    "test_candidate_map_locations_read_and_output_capacities_match",
+    "test_duplicate_glyph_directory_is_rejected",
+    "test_duplicate_unicode_codes_and_illegal_trails_are_rejected",
+    "test_native_glyph_anchor_is_not_shifted_by_94",
+    "test_p4_nibble_order_and_imgi_offset_unit",
+    "test_pristine_special_codes_are_protected_from_future_allocation",
+    "test_private_code_limit_and_group_directory_expand_together",
+    "test_private_unicode_alias_uses_the_same_unified_pixels_and_advance"
+  ]
+}

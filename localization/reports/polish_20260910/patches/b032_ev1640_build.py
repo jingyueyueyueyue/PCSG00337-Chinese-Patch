@@ -1,0 +1,98 @@
+# -*- coding: utf-8 -*-
+"""b032_ev1640 润色补丁构建：生成 JSON，并按批次 budget 自检显示宽度。"""
+import json
+import sys
+from pathlib import Path
+
+ROOT = Path(r"D:\VITA3K\ux0\app\PCSG00337")
+TSV = ROOT / "localization/text/work/b032_ev1640.tsv"
+OUT = ROOT / "localization/reports/polish_20260910/patches/b032_ev1640.json"
+
+patches = [
+    # ---- 误译/语气修正 ----
+    {"id": "b032_ev1640_0012", "translation": "步梦梦里的……大概是另一个哥哥。"},
+    {"id": "b032_ev1640_0021", "translation": "说梦话喊哥哥……"},
+    {"id": "b032_ev1640_0063", "translation": "「真是的」"},
+    {"id": "b032_ev1640_0076", "translation": "「我还不成熟，会和司机一起尽心尽力为大家服务，请多多关照」"},
+    {"id": "b032_ev1640_0082", "translation": "「今天为各位驾车的司机是户田，我是导游儿岛，请多关照」"},
+    {"id": "b032_ev1640_0106", "translation": "「对呀哥哥」"},
+    {"id": "b032_ev1640_0129", "translation": "拿起一个鲷鱼烧，掰下鱼头……"},
+    {"id": "b032_ev1640_0139", "translation": "用挂在腰间的表确认了一下时间。"},
+    {"id": "b032_ev1640_0146", "translation": "「不对，陆斗君」"},
+    {"id": "b032_ev1640_0150", "translation": "「……真快呢」"},
+    {"id": "b032_ev1640_0155", "translation": "「吃饱啦，很好吃哦」"},
+    {"id": "b032_ev1640_0159", "translation": "「毕竟你就是那孩子真正憧憬的哥哥啊？被她说想依靠你，不可能不高兴的」"},
+    {"id": "b032_ev1640_0163", "translation": "「可我这种人当『哥哥』还完全不够格……」"},
+    {"id": "b032_ev1640_0165", "translation": "「不过有一次我发现，像千里酱说的，步梦已变成独自硬扛的孩子……」"},
+    {"id": "b032_ev1640_0168", "translation": "「怎么办？附近随便逛逛？」"},
+    {"id": "b032_ev1640_0172", "translation": "「真是没出息的妈妈。不过做了顿饭，就被孩子这么客气……」"},
+    {"id": "b032_ev1640_0175", "translation": "「我心想，不愧是步梦的妈妈」"},
+    {"id": "b032_ev1640_0184", "translation": "「我完全没觉得麻烦哦。能早点痊愈真是太好了」"},
+    {"id": "b032_ev1640_0193", "translation": "「当上料理组组长后，从一大早忙到深夜，一个人不停地干活，也不肯休息……」"},
+    {"id": "b032_ev1640_0233", "translation": "「这个……会不会是步梦觉得爸爸做的饭难得，才来了精神……？」"},
+    {"id": "b032_ev1640_0305", "translation": "「可是哥哥不一样。醒来他还在同一房间……一直陪在身边……」"},
+    {"id": "b032_ev1640_0314", "translation": "「开心……开心……开心」", "note": "预算紧省略尾省略号"},
+    {"id": "b032_ev1640_0317", "translation": "「到点自然会回去」"},
+    {"id": "b032_ev1640_0322", "translation": "「比在梦里撒娇……要高兴几倍、几十倍」"},
+    {"id": "b032_ev1640_0335", "translation": "「喂，陆斗，这样」"},
+    {"id": "b032_ev1640_0338", "translation": "「哥哥，变快了哦」"},
+    {"id": "b032_ev1640_0340", "translation": "「哥哥呢？今天的旅行开心吗？」"},
+    {"id": "b032_ev1640_0346", "translation": "「大概……」"},
+    {"id": "b032_ev1640_0356", "translation": "船勉强开始前进。"},
+    {"id": "b032_ev1640_0372", "translation": "直视着我的步梦双眼，一行泪水缓缓滑落——"},
+    # ---- 词表称谓统一：良子さん→良子小姐 / 陸斗くん→陆斗君 / 歩夢くん→步梦君 ----
+    {"id": "b032_ev1640_0133", "translation": "点头之后，我和步梦一起领着爸爸和良子小姐去了购物中心。"},
+    {"id": "b032_ev1640_0134", "translation": "可良子小姐有这份心意，总有一天……"},
+    {"id": "b032_ev1640_0135", "translation": "良子小姐放心地眯起了眼。"},
+    {"id": "b032_ev1640_0140", "translation": "这次良子小姐笑着给我打气。"},
+    {"id": "b032_ev1640_0141", "translation": "初见良子小姐寂寞的神情……"},
+    {"id": "b032_ev1640_0142", "translation": "单独和良子小姐该聊什么，我不知道。"},
+    {"id": "b032_ev1640_0145", "translation": "良子小姐说得对。"},
+    {"id": "b032_ev1640_0151", "translation": "「……陆斗君也想让步梦依靠你，对吧？」"},
+    {"id": "b032_ev1640_0153", "translation": "「……也就是说，陆斗君把步梦当兄妹看了吗？」"},
+    {"id": "b032_ev1640_0186", "translation": "「我也想和陆斗君单独聊聊来着」"},
+    {"id": "b032_ev1640_0198", "translation": "「我相信只要是你，步梦就会依靠你、向你撒娇……对，憧憬的哥哥的话……」", "note": "预算紧：陸斗くん以你代称"},
+    {"id": "b032_ev1640_0200", "translation": "「啊，可女仆装那事步梦拜托了良子小姐吧？」"},
+    {"id": "b032_ev1640_0209", "translation": "「嗯，不如分成两组。我和陆斗君，小直和步梦」"},
+    {"id": "b032_ev1640_0229", "translation": "「那走吧，陆斗君」"},
+    {"id": "b032_ev1640_0231", "translation": "「真要那样的话，我的职责就是巧妙引导步梦不让她崩溃，可我远没有良子小姐那么在行……」"},
+    {"id": "b032_ev1640_0234", "translation": "「这或许是个好主意。和步梦君单独聊天的机会，以前几乎没有过」"},
+    {"id": "b032_ev1640_0249", "translation": "说完，我便和良子小姐一起朝学校走去。"},
+    {"id": "b032_ev1640_0275", "translation": "爸爸和良子小姐选了手划船，我们也不知怎么跟着选了同样的……"},
+    {"id": "b032_ev1640_0358", "translation": "良子小姐特意安排的二人独处机会。"},
+    # ---- 预算放不下全称，仅补注说明（译文维持初翻） ----
+    {"id": "b032_ev1640_0084", "translation": "「你们俩呢？」", "note": "预算过紧：陸斗と歩夢くん无法全称"},
+    {"id": "b032_ev1640_0196", "translation": "「步梦，走」", "note": "预算过紧：歩夢くん无法译步梦君"},
+    {"id": "b032_ev1640_0227", "translation": "「嗯……我想看看你们学校呢？」", "note": "预算过紧：陸斗くんたち无法全称"},
+    {"id": "b032_ev1640_0251", "translation": "「可要是在这里反对或犹豫，恐怕会伤到良子的心……」", "note": "预算过紧：良子小姐"},
+    {"id": "b032_ev1640_0260", "translation": "良子点头走到我身旁。", "note": "预算过紧：良子小姐"},
+]
+
+# ---- 自检：控制符 + 宽度（与 validate_translations.enc_len 同口径） ----
+budget = {}
+for line in TSV.read_text(encoding="utf-8").split("\n")[1:]:
+    if not line.strip():
+        continue
+    f = line.split("\t")
+    budget[f[0]] = int(f[4])
+
+bad = []
+for p in patches:
+    tr = p["translation"]
+    if "\t" in tr or "\n" in tr or "\r" in tr:
+        bad.append((p["id"], "control char"))
+        continue
+    if p["id"] not in budget:
+        bad.append((p["id"], "unknown id"))
+        continue
+    n = sum(1 if ord(c) < 128 else 2 for c in tr)
+    if n > budget[p["id"]]:
+        bad.append((p["id"], f"too_long {n}>{budget[p['id']]}"))
+if bad:
+    for pid, why in bad:
+        print("BAD", pid, why)
+    sys.exit("self-check failed")
+
+OUT.parent.mkdir(parents=True, exist_ok=True)
+json.dump({"patches": patches}, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+print("patches:", len(patches), "-> all within budget")

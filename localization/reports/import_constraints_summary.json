@@ -1,0 +1,10 @@
+{
+  "generated_at": "2026-09-08T21:59:52",
+  "translation": "localization\\text\\translation_source.csv",
+  "code_table": "localization\\font\\generated\\font_code_table_reset.tsv",
+  "rows_checked": 25432,
+  "status_counts": {
+    "ok": 25432
+  },
+  "report": "localization\\reports\\import_constraints_report.tsv"
+}

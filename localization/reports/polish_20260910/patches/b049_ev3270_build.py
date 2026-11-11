@@ -1,0 +1,58 @@
+# -*- coding: utf-8 -*-
+"""b049_ev3270 润色补丁构建（带宽度自检）"""
+import csv
+import json
+import sys
+
+BATCH = r"D:\VITA3K\ux0\app\PCSG00337\localization\text\work\b049_ev3270.tsv"
+OUT = r"D:\VITA3K\ux0\app\PCSG00337\localization\reports\polish_20260910\patches\b049_ev3270.json"
+
+patches = [
+    {"id": "b049_ev3270_0058", "translation": "「虽然时间不多了，房间分配就照旧吧」"},
+    {"id": "b049_ev3270_0112", "translation": "被其他男生说『换人』时的感觉……"},
+    {"id": "b049_ev3270_0115", "translation": "每次看到两人要好、每次忍不住想象，心就一阵躁动。"},
+    {"id": "b049_ev3270_0124", "translation": "随后涌上心头的是巨大的喜悦。"},
+    {"id": "b049_ev3270_0128", "translation": "也就是说，奉莉一直把步梦当要好的男生看待。"},
+    {"id": "b049_ev3270_0148", "translation": "「……步梦…还醒着？」"},
+    {"id": "b049_ev3270_0156", "translation": "「那，今后请多关照我的笑容」"},
+    {"id": "b049_ev3270_0192", "translation": "摆出最可爱的笑容。"},
+    {"id": "b049_ev3270_0268", "translation": "章介代替奉莉开了口。"},
+    {"id": "b049_ev3270_0300", "translation": "「回家找爸爸商量一下不是挺好？」"},
+    {"id": "b049_ev3270_0305", "translation": "「现在5班综合第5名，就算他们夺冠，只要我们第2名就不会被逆转」"},
+    {"id": "b049_ev3270_0316", "translation": "平时该被吐槽的场景有3次，今天全被无视了"},
+    {"id": "b049_ev3270_0325", "translation": "「浴衣的话，能自己准备的女生应该不少……」"},
+    {"id": "b049_ev3270_0339", "translation": "「伊奈濑饭是把蛤蜊清汤浇在饭上的东西，是两码事。不过也有地方把蛤蜊什锦蒸饭用这名字来卖」"},
+    {"id": "b049_ev3270_0341", "translation": "「不，刚才是骗你的，别在意」"},
+    {"id": "b049_ev3270_0342", "translation": "「不，只是办成的条件凑齐了」"},
+    {"id": "b049_ev3270_0353", "translation": "「荞麦面和乌冬应该能卖吧？」"},
+]
+
+bad = [p["id"] for p in patches if "\t" in p["translation"] or "\n" in p["translation"]]
+if bad:
+    raise SystemExit("control chars in: %r" % bad)
+
+
+def enc_len(s: str) -> int:
+    return sum(1 if ord(c) < 128 else 2 for c in s)
+
+
+budgets = {}
+with open(BATCH, encoding="utf-8", newline="") as f:
+    for row in csv.DictReader(f, delimiter="\t"):
+        budgets[row["id"]] = int(row["budget"])
+
+over = []
+for p in patches:
+    n = enc_len(p["translation"])
+    b = budgets.get(p["id"])
+    if b is None:
+        over.append((p["id"], "unknown id"))
+    elif n > b:
+        over.append((p["id"], "%d>%d" % (n, b)))
+if over:
+    for pid, msg in over:
+        print("WIDTH OVER: %s %s" % (pid, msg))
+    raise SystemExit("width check failed: %d" % len(over))
+
+json.dump({"patches": patches}, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+print("patches:", len(patches), "all width checks passed")

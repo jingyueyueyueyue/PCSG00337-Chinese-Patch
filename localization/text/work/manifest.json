@@ -1,0 +1,566 @@
+[
+ {
+  "batch": "b001_system",
+  "file": "localization\\text\\work\\b001_system.tsv",
+  "lines": 541,
+  "rows_covered": 541
+ },
+ {
+  "batch": "b002_ev0040",
+  "file": "localization\\text\\work\\b002_ev0040.tsv",
+  "lines": 439,
+  "rows_covered": 454
+ },
+ {
+  "batch": "b003_ev0095",
+  "file": "localization\\text\\work\\b003_ev0095.tsv",
+  "lines": 408,
+  "rows_covered": 432
+ },
+ {
+  "batch": "b004_ev0125",
+  "file": "localization\\text\\work\\b004_ev0125.tsv",
+  "lines": 450,
+  "rows_covered": 483
+ },
+ {
+  "batch": "b005_ev0155",
+  "file": "localization\\text\\work\\b005_ev0155.tsv",
+  "lines": 432,
+  "rows_covered": 460
+ },
+ {
+  "batch": "b006_ev0210",
+  "file": "localization\\text\\work\\b006_ev0210.tsv",
+  "lines": 570,
+  "rows_covered": 619
+ },
+ {
+  "batch": "b007_ev0260",
+  "file": "localization\\text\\work\\b007_ev0260.tsv",
+  "lines": 399,
+  "rows_covered": 443
+ },
+ {
+  "batch": "b008_ev0290",
+  "file": "localization\\text\\work\\b008_ev0290.tsv",
+  "lines": 531,
+  "rows_covered": 579
+ },
+ {
+  "batch": "b009_ev0340",
+  "file": "localization\\text\\work\\b009_ev0340.tsv",
+  "lines": 465,
+  "rows_covered": 526
+ },
+ {
+  "batch": "b010_ev0390",
+  "file": "localization\\text\\work\\b010_ev0390.tsv",
+  "lines": 448,
+  "rows_covered": 508
+ },
+ {
+  "batch": "b011_ev0430",
+  "file": "localization\\text\\work\\b011_ev0430.tsv",
+  "lines": 460,
+  "rows_covered": 516
+ },
+ {
+  "batch": "b012_ev0470",
+  "file": "localization\\text\\work\\b012_ev0470.tsv",
+  "lines": 386,
+  "rows_covered": 429
+ },
+ {
+  "batch": "b013_ev0500",
+  "file": "localization\\text\\work\\b013_ev0500.tsv",
+  "lines": 471,
+  "rows_covered": 538
+ },
+ {
+  "batch": "b014_ev0560",
+  "file": "localization\\text\\work\\b014_ev0560.tsv",
+  "lines": 379,
+  "rows_covered": 429
+ },
+ {
+  "batch": "b015_ev0570",
+  "file": "localization\\text\\work\\b015_ev0570.tsv",
+  "lines": 452,
+  "rows_covered": 508
+ },
+ {
+  "batch": "b016_ev0630",
+  "file": "localization\\text\\work\\b016_ev0630.tsv",
+  "lines": 450,
+  "rows_covered": 508
+ },
+ {
+  "batch": "b017_ev0655",
+  "file": "localization\\text\\work\\b017_ev0655.tsv",
+  "lines": 358,
+  "rows_covered": 422
+ },
+ {
+  "batch": "b018_ev0710",
+  "file": "localization\\text\\work\\b018_ev0710.tsv",
+  "lines": 399,
+  "rows_covered": 457
+ },
+ {
+  "batch": "b019_ev0999",
+  "file": "localization\\text\\work\\b019_ev0999.tsv",
+  "lines": 371,
+  "rows_covered": 431
+ },
+ {
+  "batch": "b020_ev1065",
+  "file": "localization\\text\\work\\b020_ev1065.tsv",
+  "lines": 382,
+  "rows_covered": 450
+ },
+ {
+  "batch": "b021_ev1120",
+  "file": "localization\\text\\work\\b021_ev1120.tsv",
+  "lines": 372,
+  "rows_covered": 452
+ },
+ {
+  "batch": "b022_ev1170",
+  "file": "localization\\text\\work\\b022_ev1170.tsv",
+  "lines": 377,
+  "rows_covered": 436
+ },
+ {
+  "batch": "b023_ev1200",
+  "file": "localization\\text\\work\\b023_ev1200.tsv",
+  "lines": 568,
+  "rows_covered": 637
+ },
+ {
+  "batch": "b024_ev1250",
+  "file": "localization\\text\\work\\b024_ev1250.tsv",
+  "lines": 365,
+  "rows_covered": 440
+ },
+ {
+  "batch": "b025_ev1295",
+  "file": "localization\\text\\work\\b025_ev1295.tsv",
+  "lines": 387,
+  "rows_covered": 458
+ },
+ {
+  "batch": "b026_ev1340",
+  "file": "localization\\text\\work\\b026_ev1340.tsv",
+  "lines": 351,
+  "rows_covered": 420
+ },
+ {
+  "batch": "b027_ev1390",
+  "file": "localization\\text\\work\\b027_ev1390.tsv",
+  "lines": 362,
+  "rows_covered": 429
+ },
+ {
+  "batch": "b028_ev1420",
+  "file": "localization\\text\\work\\b028_ev1420.tsv",
+  "lines": 378,
+  "rows_covered": 451
+ },
+ {
+  "batch": "b029_ev1490",
+  "file": "localization\\text\\work\\b029_ev1490.tsv",
+  "lines": 387,
+  "rows_covered": 458
+ },
+ {
+  "batch": "b030_ev1550",
+  "file": "localization\\text\\work\\b030_ev1550.tsv",
+  "lines": 506,
+  "rows_covered": 590
+ },
+ {
+  "batch": "b031_ev1610",
+  "file": "localization\\text\\work\\b031_ev1610.tsv",
+  "lines": 416,
+  "rows_covered": 488
+ },
+ {
+  "batch": "b032_ev1640",
+  "file": "localization\\text\\work\\b032_ev1640.tsv",
+  "lines": 373,
+  "rows_covered": 439
+ },
+ {
+  "batch": "b033_ev1675",
+  "file": "localization\\text\\work\\b033_ev1675.tsv",
+  "lines": 410,
+  "rows_covered": 485
+ },
+ {
+  "batch": "b034_ev1715",
+  "file": "localization\\text\\work\\b034_ev1715.tsv",
+  "lines": 439,
+  "rows_covered": 533
+ },
+ {
+  "batch": "b035_ev1770",
+  "file": "localization\\text\\work\\b035_ev1770.tsv",
+  "lines": 364,
+  "rows_covered": 433
+ },
+ {
+  "batch": "b036_ev1800",
+  "file": "localization\\text\\work\\b036_ev1800.tsv",
+  "lines": 362,
+  "rows_covered": 438
+ },
+ {
+  "batch": "b037_ev1840",
+  "file": "localization\\text\\work\\b037_ev1840.tsv",
+  "lines": 440,
+  "rows_covered": 534
+ },
+ {
+  "batch": "b038_ev1895",
+  "file": "localization\\text\\work\\b038_ev1895.tsv",
+  "lines": 391,
+  "rows_covered": 464
+ },
+ {
+  "batch": "b039_ev1940",
+  "file": "localization\\text\\work\\b039_ev1940.tsv",
+  "lines": 345,
+  "rows_covered": 431
+ },
+ {
+  "batch": "b040_ev2010",
+  "file": "localization\\text\\work\\b040_ev2010.tsv",
+  "lines": 399,
+  "rows_covered": 473
+ },
+ {
+  "batch": "b041_ev2060",
+  "file": "localization\\text\\work\\b041_ev2060.tsv",
+  "lines": 361,
+  "rows_covered": 422
+ },
+ {
+  "batch": "b042_ev2130",
+  "file": "localization\\text\\work\\b042_ev2130.tsv",
+  "lines": 362,
+  "rows_covered": 435
+ },
+ {
+  "batch": "b043_ev2220",
+  "file": "localization\\text\\work\\b043_ev2220.tsv",
+  "lines": 279,
+  "rows_covered": 446
+ },
+ {
+  "batch": "b044_ev3040",
+  "file": "localization\\text\\work\\b044_ev3040.tsv",
+  "lines": 245,
+  "rows_covered": 416
+ },
+ {
+  "batch": "b045_ev3090",
+  "file": "localization\\text\\work\\b045_ev3090.tsv",
+  "lines": 357,
+  "rows_covered": 516
+ },
+ {
+  "batch": "b046_ev3160",
+  "file": "localization\\text\\work\\b046_ev3160.tsv",
+  "lines": 258,
+  "rows_covered": 433
+ },
+ {
+  "batch": "b047_ev3190",
+  "file": "localization\\text\\work\\b047_ev3190.tsv",
+  "lines": 286,
+  "rows_covered": 402
+ },
+ {
+  "batch": "b048_ev3240",
+  "file": "localization\\text\\work\\b048_ev3240.tsv",
+  "lines": 465,
+  "rows_covered": 540
+ },
+ {
+  "batch": "b049_ev3270",
+  "file": "localization\\text\\work\\b049_ev3270.tsv",
+  "lines": 387,
+  "rows_covered": 527
+ },
+ {
+  "batch": "b050_ev3320",
+  "file": "localization\\text\\work\\b050_ev3320.tsv",
+  "lines": 370,
+  "rows_covered": 451
+ },
+ {
+  "batch": "b051_ev3350",
+  "file": "localization\\text\\work\\b051_ev3350.tsv",
+  "lines": 316,
+  "rows_covered": 412
+ },
+ {
+  "batch": "b052_ev3400",
+  "file": "localization\\text\\work\\b052_ev3400.tsv",
+  "lines": 331,
+  "rows_covered": 447
+ },
+ {
+  "batch": "b053_ev3435",
+  "file": "localization\\text\\work\\b053_ev3435.tsv",
+  "lines": 308,
+  "rows_covered": 410
+ },
+ {
+  "batch": "b054_ev3480",
+  "file": "localization\\text\\work\\b054_ev3480.tsv",
+  "lines": 417,
+  "rows_covered": 522
+ },
+ {
+  "batch": "b055_ev3530",
+  "file": "localization\\text\\work\\b055_ev3530.tsv",
+  "lines": 320,
+  "rows_covered": 415
+ },
+ {
+  "batch": "b056_ev3570",
+  "file": "localization\\text\\work\\b056_ev3570.tsv",
+  "lines": 334,
+  "rows_covered": 427
+ },
+ {
+  "batch": "b057_ev3630",
+  "file": "localization\\text\\work\\b057_ev3630.tsv",
+  "lines": 327,
+  "rows_covered": 417
+ },
+ {
+  "batch": "b058_ev3680",
+  "file": "localization\\text\\work\\b058_ev3680.tsv",
+  "lines": 370,
+  "rows_covered": 444
+ },
+ {
+  "batch": "b059_ev3730",
+  "file": "localization\\text\\work\\b059_ev3730.tsv",
+  "lines": 310,
+  "rows_covered": 416
+ },
+ {
+  "batch": "b060_ev3770",
+  "file": "localization\\text\\work\\b060_ev3770.tsv",
+  "lines": 402,
+  "rows_covered": 535
+ },
+ {
+  "batch": "b061_ev4020",
+  "file": "localization\\text\\work\\b061_ev4020.tsv",
+  "lines": 379,
+  "rows_covered": 505
+ },
+ {
+  "batch": "b062_ev4070",
+  "file": "localization\\text\\work\\b062_ev4070.tsv",
+  "lines": 174,
+  "rows_covered": 421
+ },
+ {
+  "batch": "b063_ev4120",
+  "file": "localization\\text\\work\\b063_ev4120.tsv",
+  "lines": 361,
+  "rows_covered": 536
+ },
+ {
+  "batch": "b064_ev4150",
+  "file": "localization\\text\\work\\b064_ev4150.tsv",
+  "lines": 279,
+  "rows_covered": 421
+ },
+ {
+  "batch": "b065_ev4180",
+  "file": "localization\\text\\work\\b065_ev4180.tsv",
+  "lines": 264,
+  "rows_covered": 459
+ },
+ {
+  "batch": "b066_ev4210",
+  "file": "localization\\text\\work\\b066_ev4210.tsv",
+  "lines": 289,
+  "rows_covered": 412
+ },
+ {
+  "batch": "b067_ev4280",
+  "file": "localization\\text\\work\\b067_ev4280.tsv",
+  "lines": 351,
+  "rows_covered": 432
+ },
+ {
+  "batch": "b068_ev4300",
+  "file": "localization\\text\\work\\b068_ev4300.tsv",
+  "lines": 223,
+  "rows_covered": 477
+ },
+ {
+  "batch": "b069_ev4345",
+  "file": "localization\\text\\work\\b069_ev4345.tsv",
+  "lines": 446,
+  "rows_covered": 513
+ },
+ {
+  "batch": "b070_ev4390",
+  "file": "localization\\text\\work\\b070_ev4390.tsv",
+  "lines": 365,
+  "rows_covered": 419
+ },
+ {
+  "batch": "b071_ev4410",
+  "file": "localization\\text\\work\\b071_ev4410.tsv",
+  "lines": 354,
+  "rows_covered": 422
+ },
+ {
+  "batch": "b072_ev4450",
+  "file": "localization\\text\\work\\b072_ev4450.tsv",
+  "lines": 446,
+  "rows_covered": 519
+ },
+ {
+  "batch": "b073_ev4485",
+  "file": "localization\\text\\work\\b073_ev4485.tsv",
+  "lines": 443,
+  "rows_covered": 531
+ },
+ {
+  "batch": "b074_ev4515",
+  "file": "localization\\text\\work\\b074_ev4515.tsv",
+  "lines": 491,
+  "rows_covered": 567
+ },
+ {
+  "batch": "b075_ev4545",
+  "file": "localization\\text\\work\\b075_ev4545.tsv",
+  "lines": 380,
+  "rows_covered": 439
+ },
+ {
+  "batch": "b076_ev4580",
+  "file": "localization\\text\\work\\b076_ev4580.tsv",
+  "lines": 416,
+  "rows_covered": 462
+ },
+ {
+  "batch": "b077_ev4590",
+  "file": "localization\\text\\work\\b077_ev4590.tsv",
+  "lines": 288,
+  "rows_covered": 467
+ },
+ {
+  "batch": "b078_ev5070",
+  "file": "localization\\text\\work\\b078_ev5070.tsv",
+  "lines": 368,
+  "rows_covered": 498
+ },
+ {
+  "batch": "b079_ev5110",
+  "file": "localization\\text\\work\\b079_ev5110.tsv",
+  "lines": 187,
+  "rows_covered": 409
+ },
+ {
+  "batch": "b080_ev5160",
+  "file": "localization\\text\\work\\b080_ev5160.tsv",
+  "lines": 427,
+  "rows_covered": 548
+ },
+ {
+  "batch": "b081_ev5210",
+  "file": "localization\\text\\work\\b081_ev5210.tsv",
+  "lines": 351,
+  "rows_covered": 494
+ },
+ {
+  "batch": "b082_ev5270",
+  "file": "localization\\text\\work\\b082_ev5270.tsv",
+  "lines": 263,
+  "rows_covered": 450
+ },
+ {
+  "batch": "b083_ev5310",
+  "file": "localization\\text\\work\\b083_ev5310.tsv",
+  "lines": 263,
+  "rows_covered": 424
+ },
+ {
+  "batch": "b084_ev5350",
+  "file": "localization\\text\\work\\b084_ev5350.tsv",
+  "lines": 280,
+  "rows_covered": 457
+ },
+ {
+  "batch": "b085_ev5420",
+  "file": "localization\\text\\work\\b085_ev5420.tsv",
+  "lines": 416,
+  "rows_covered": 528
+ },
+ {
+  "batch": "b086_ev5440",
+  "file": "localization\\text\\work\\b086_ev5440.tsv",
+  "lines": 349,
+  "rows_covered": 439
+ },
+ {
+  "batch": "b087_ev5480",
+  "file": "localization\\text\\work\\b087_ev5480.tsv",
+  "lines": 371,
+  "rows_covered": 494
+ },
+ {
+  "batch": "b088_ev5530",
+  "file": "localization\\text\\work\\b088_ev5530.tsv",
+  "lines": 337,
+  "rows_covered": 457
+ },
+ {
+  "batch": "b089_ev5590",
+  "file": "localization\\text\\work\\b089_ev5590.tsv",
+  "lines": 328,
+  "rows_covered": 442
+ },
+ {
+  "batch": "b090_ev5640",
+  "file": "localization\\text\\work\\b090_ev5640.tsv",
+  "lines": 367,
+  "rows_covered": 500
+ },
+ {
+  "batch": "b091_ev5685",
+  "file": "localization\\text\\work\\b091_ev5685.tsv",
+  "lines": 358,
+  "rows_covered": 439
+ },
+ {
+  "batch": "b092_ev5720",
+  "file": "localization\\text\\work\\b092_ev5720.tsv",
+  "lines": 336,
+  "rows_covered": 435
+ },
+ {
+  "batch": "b093_ev5780",
+  "file": "localization\\text\\work\\b093_ev5780.tsv",
+  "lines": 185,
+  "rows_covered": 474
+ },
+ {
+  "batch": "b094_system",
+  "file": "localization\\text\\work\\b094_system.tsv",
+  "lines": 1,
+  "rows_covered": 8
+ }
+]
